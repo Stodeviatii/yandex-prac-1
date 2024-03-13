@@ -68,6 +68,17 @@
 - staged (англ. «подготовленный») После выполнения команды git add файл попадает в staging area;
 - tracked (англ. «отслеживаемый») В него попадают файлы, которые уже были зафиксированы с помощью git commit, а также файлы, которые были добавлены в staging area командой git add;
 - modified (англ. «изменённый») означает, что Git сравнил содержимое файла с последней сохранённой версией и нашёл отличия.
+### Типичный жизненный цикл файла в Git
+
+```mermaid
+graph LR;
+untracked -- "git add" --> staged;
+staged -- "git commit" --> tracked;
+tracked -- "Изменения" --> modified;
+modified -- "git add" --> staged;
+staged -- "Изменения" --> modified.
+```
+
 ## Урок 5. Как читать git status
 ###  git status показывает только следующие состояния файлов:
 - staged (Changes to be committed в выводе git status);
